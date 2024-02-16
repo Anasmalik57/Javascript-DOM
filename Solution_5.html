@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Imagr</title>
+    <style>
+      body {
+        height: calc(100vh - 64px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hidden {
+        display: none;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+      }
+      button {
+        padding: 4px 6px;
+        transition: all 0.3s ease-in;
+      }
+      button:hover {
+        box-shadow: 4px 4px 8px #6f6d6d;
+        letter-spacing: 0.8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Image is <span id="span">Visible</span></h1>
+      <button id="btn">Hide Image</button> <br />
+      <img
+        src="https://img.freepik.com/free-photo/view-3d-car-model_23-2151138956.jpg?size=626&ext=jpg"
+        id="image"
+        alt=""
+      />
+    </div>
+
+    <script>
+      const btn = document.getElementById("btn");
+      const image = document.getElementById("image");
+      const span = document.getElementById("span");
+      btn.addEventListener("click", () => {
+        image.classList.toggle("hidden");
+        if (span.innerText === "Visible") {
+          span.innerText = "Hidden";
+        } else {
+          span.innerText = "Visible";
+        }
+        if (btn.innerText === "Hide Image") {
+          btn.innerText = "See Image";
+        } else {
+          btn.innerText = "Hide Image";
+        }
+      });
+    </script>
+  </body>
+</html>

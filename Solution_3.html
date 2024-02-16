@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Counter</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 64px);
+      }
+      #LabelCounter {
+        padding: 20px;
+        font-size: 80px;
+      }
+      button{
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="increase">+</button>
+      <label id="LabelCounter">0</label>
+      <button id="decrease">-</button>
+    </div>
+
+    <script>
+      let count = 0;
+      const labelCounter = document.getElementById("LabelCounter");
+      const increase = document.getElementById("increase");
+      const decrease = document.getElementById("decrease");
+
+      increase.addEventListener("click", () => {
+        count += 1;
+        labelCounter.textContent = count;
+      });
+      decrease.addEventListener("click", () => {
+        if (count > 0) {
+          count -= 1;
+          labelCounter.textContent = count;
+        } else {
+          alert("Negative Counting Not Allowed");
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>

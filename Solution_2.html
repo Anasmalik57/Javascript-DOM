@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .container{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 64px);
+        }
+        .darkMode{
+            background-color: #000;
+            color: #fff;
+            transition: all .5s ease-in-out;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1>This is <span id="span">Light</span> Theme</h1>
+        <button id="togglebtn">Toogle Theme</button>
+      </div>
+    </div>
+
+    <script>
+      const togglebtn = document.getElementById("togglebtn");
+      const span = document.getElementById("span");
+
+      togglebtn.addEventListener("click", ()=>{
+        document.body.classList.toggle('darkMode');
+
+        if(span.innerText === "Light"){
+            span.innerText = 'Dark';
+        }
+        else{
+            span.innerText = "Light";
+        }
+      })
+    </script>
+  </body>
+</html>

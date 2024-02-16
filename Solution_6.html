@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating Dropdown</title>
+  </head>
+  <body>
+    <script>
+      let h1 = document.createElement("h1");
+      h1.className = "heading";
+      h1.textContent = "Which is Your favorite Programming Language :";
+      h1.style.fontSize = "20px";
+      document.body.append(h1);
+
+      let select = document.createElement("Select");
+      select.className = "Languages";
+      document.body.append(select);
+
+      let option1 = document.createElement("option");
+      option1.value = "Javascript";
+      option1.textContent = "Javascript";
+      select.appendChild(option1);
+
+      let option2 = document.createElement("option");
+      option2.value = "Python";
+      option2.textContent = "Python";
+      select.appendChild(option2);
+
+      let option3 = document.createElement("option");
+      option3.value = "Java";
+      option3.textContent = "Java";
+      select.appendChild(option3);
+    </script>
+  </body>
+</html>

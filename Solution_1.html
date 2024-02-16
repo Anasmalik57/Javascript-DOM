@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Changer</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      input {
+        margin-left: 72px;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        /* object-fit: contain; */
+        object-position: center center;
+        border-radius: 10px;
+        box-sizing: border-box;
+      }
+      img:hover {
+        box-shadow: 5px 5px 15px #585555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update Profile Picture</h1>
+      <input type="file" id="fileInput" onchange="changeImg()" />
+      <h3>Your Profile Picture</h3>
+      <img src="" id="preview" alt="No Profile Picture" />
+    </div>
+
+    <script>
+      const fileInput = document.getElementById('fileInput');
+      const preview = document.getElementById('preview');
+
+      fileInput.addEventListener("change", changeImg);
+
+      function changeImg() {
+          const reader = new FileReader();
+          const inputReader = fileInput.files[0];
+
+          reader.onload = function (input) {
+              preview.src = input.target.result;
+          }
+          reader.readAsDataURL(inputReader)
+      }
+    </script>
+  </body>
+</html>

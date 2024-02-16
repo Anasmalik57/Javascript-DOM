@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display time and Corresponding color</title>
+  </head>
+  <style>
+    body {
+      height: calc(100vh - 64px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      color: #fff;
+    }
+    .timer {
+      font-size: 50px;
+      padding: 20px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+    }
+  </style>
+  <body>
+    <div class="timer" id="timer">
+      <span id="hours">00</span> : <span id="minutes">00</span> :
+      <span id="seconds">00</span>
+    </div>
+
+    <script>
+      function updateTimer() {
+        const currentTime = new Date();
+        const hours = currentTime.getHours().toString().padStart(2, "0");
+        const minutes = currentTime.getMinutes().toString().padStart(2, "0");
+        const seconds = currentTime.getSeconds().toString().padStart(2, "0");
+        const hexcode = `#${hours}${minutes}${seconds}`; // Hexadecimal code for the color based on the time
+
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+
+        document.body.style.backgroundColor =
+          hexcode; /* Set background color */
+      }
+
+      setInterval(updateTimer, 1000);
+    </script>
+  </body>
+</html>

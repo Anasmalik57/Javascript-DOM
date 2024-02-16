@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Searching Items</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="InputFeild"
+      style="padding: 4px"
+      placeholder="Search for Items"
+    />
+    <h3>Results</h3>
+    <ul id="itemlist">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Tailwind CSS</li>
+      <li>GitHub</li>
+      <li>JavaScript</li>
+    </ul>
+
+    <script>
+      const InputFeild = document.getElementById("InputFeild");
+      const itemlist = document
+        .getElementById("itemlist")
+        .getElementsByTagName("li");
+
+      InputFeild.addEventListener("input", () => {
+        const InputValue = InputFeild.value.toLowerCase();
+
+        for (let i = 0; i < itemlist.length; i++) {
+          const itemText = itemlist[i].innerText.toLowerCase();
+
+          if (itemText.includes(InputValue)) {
+            itemlist[i].style.display = "block";
+          } else {
+            itemlist[i].style.display = "none";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
